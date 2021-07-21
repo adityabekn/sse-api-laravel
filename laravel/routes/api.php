@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+//Route::get('/', [\App\Http\Controllers\Api\BookController::class, 'index']);
+//
+//Route::get('/{book}', [\App\Http\Controllers\Api\BookController::class, 'show']);
+
+//Route::post('/books', [\App\Http\Controllers\BookController::class, 'store']);
+
+Route::resource('/books', \App\Http\Controllers\Api\BookController::class)->except('create', 'edit');
