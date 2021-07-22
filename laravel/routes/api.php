@@ -18,10 +18,14 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-//Route::get('/', [\App\Http\Controllers\Api\BookController::class, 'index']);
-//
-//Route::get('/{book}', [\App\Http\Controllers\Api\BookController::class, 'show']);
+Route::get('/books', [\App\Http\Controllers\Api\BookController::class, 'index']);
 
-//Route::post('/books', [\App\Http\Controllers\BookController::class, 'store']);
+Route::get('/books/{id}', [\App\Http\Controllers\Api\BookController::class, 'show']);
 
-Route::resource('/books', \App\Http\Controllers\Api\BookController::class)->except('create', 'edit');
+Route::post('/books', [\App\Http\Controllers\BookController::class, 'store']);
+
+Route::put('/books/{id}', [\App\Http\Controllers\Api\BookController::class, 'update']);
+
+Route::delete('/books/{id}', [\App\Http\Controllers\Api\BookController::class, 'destroy']);
+
+//Route::resource('/books', \App\Http\Controllers\Api\BookController::class)->except('create', 'edit');

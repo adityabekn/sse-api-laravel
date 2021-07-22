@@ -55,13 +55,13 @@ class BookController extends Controller
      */
     public function show($id)
     {
-//        $book = Book::findOrFail($id);
-//        $response = [
-//            'message' => 'Detail of Book',
-//            'data' => $book
-//        ];
-//
-//        return response()->json($response, 200);
+        $book = Book::findOrFail($id);
+        $response = [
+            'message' => 'Detail of Book',
+            'data' => $book
+        ];
+
+        return response()->json($response, 200);
     }
 
     /**
