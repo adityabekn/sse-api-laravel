@@ -33,18 +33,18 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-//        $book = new Book();
-//        $book->title = $request->title;
-//        $book->author = $request->author;
-//        $book->publication = $request->publication;
-//        $book->year = $request->year;
-//        $book->save();
-//        $response = [
-//            'message' => 'Book created',
-//            'data' => $book
-//        ];
-//
-//        return response()->json($response, 201);
+        $book = new Book();
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->publication = $request->publication;
+        $book->year = $request->year;
+        $book->save();
+        $response = [
+            'message' => 'Book created',
+            'data' => $book
+        ];
+
+        return response()->json($response, 201);
     }
 
     /**
@@ -73,7 +73,19 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $book = Book::findOrFail($id);
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->publication = $request->publication;
+        $book->year = $request->year;
+        $book->update();
+
+        $response = [
+            'message' => 'Update Success',
+            'data' => $book
+        ];
+
+        return response()->json($response, 200);
     }
 
     /**
@@ -84,6 +96,14 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $book = Book::findOrFail($id);
+        $book->delete();
+
+        $response = [
+            'message' => 'Delete Success',
+            'data' => []
+        ];
+
+        return response()->json($response, 200);
     }
 }
