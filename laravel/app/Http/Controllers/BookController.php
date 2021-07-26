@@ -99,6 +99,6 @@ class BookController extends Controller
     {
         $book = Book::find($id);
         $book->delete();
-        return "Book with id ". $id . " deleted";
+        return redirect('books');
     }
 }

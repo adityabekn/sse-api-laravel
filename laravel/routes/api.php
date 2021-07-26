@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +19,14 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::get('/books', [\App\Http\Controllers\Api\BookController::class, 'index']);
+//Route::get('/books', [BookController::class, 'index']);
+//
+//Route::get('/books/{id}', [BookController::class, 'show']);
+//
+//Route::post('/books', [BookController::class, 'store']);
+//
+//Route::put('/books/{id}', [BookController::class, 'update']);
+//
+//Route::delete('/books/{id}', [BookController::class, 'destroy']);
 
-Route::get('/books/{id}', [\App\Http\Controllers\Api\BookController::class, 'show']);
-
-Route::post('/books', [\App\Http\Controllers\Api\BookController::class, 'store']);
-
-Route::put('/books/{id}', [\App\Http\Controllers\Api\BookController::class, 'update']);
-
-Route::delete('/books/{id}', [\App\Http\Controllers\Api\BookController::class, 'destroy']);
-
-//Route::resource('/books', \App\Http\Controllers\Api\BookController::class)->except('create', 'edit');
+Route::resource('/books', BookController::class)->except('create', 'edit');
