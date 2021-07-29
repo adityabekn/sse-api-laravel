@@ -42,3 +42,10 @@
         </table>
     </div>
 @endsection
+
+{{--<script>--}}
+{{--    var source = new EventSource("/api/sse");--}}
+{{--    source.addEventListener('ping', function (e) {--}}
+{{--       document.body.innerHTML += e.data + '<br>';--}}
+{{--    })--}}
+{{--</script>--}}
